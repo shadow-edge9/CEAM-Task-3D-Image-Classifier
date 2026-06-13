@@ -23,7 +23,7 @@ Therefore, I updated my dataset to include 300+ images (60 Validation Images) wh
 
 ### STEP 2: BUILDING THE MODEL
 1. For all the modules used in the project, please refer to **Prerequisites**. First I started by creating a class called ```CEAMShapeNet``` that is basically a child class from the ```nn.Module``` class in ```torchvision```. Initially it had on 2 ```Conv2D``` layers but I later updated it to have 3 Conv2D layers due to the lack of precision my model was showing (rather, the absence of precision. It was consistently yelling CUBE! at every shape I threw it) Then I set up the Dense Layers are defined the forward function.
-2. By default I set the use_dropout to False but later activate it during training.
+2. By default I set the use_dropout to False but later activate it during training so that the model doesn't get lazy and learn shortcuts.
 3. After that I set up transforms in ```__main__``` for both Training and Validation Datasets. To prevent my model from cheating and learning only based on colour I stripped it off its ability to see colour using ```transforms.Grayscale```. Moreover I used ```transforms.RandomHorizontalFLip``` and ```transforms.RandomRotation``` to effectively increase the dataset images without physically doing any of these operations on my actual datatset.
 4. Used ```os``` module to map my directories and load assets.
 5. The optimizer I used was Adam. It's defaults work well for almost any Neural Network and also does well with noisy or inconsistent data, like the data we have here.
@@ -36,11 +36,31 @@ It took me a total of 6 Trials to get to the near accurate version of this model
 ### STEP 3: THE REAL DEAL - THE PREDICTOR
 Now that I had my model, the brain of my project all prepared and ready for action, I had to use it. Somewhere. 
 
-```predict.py``` script is the main script to be run since I've already uploaded the weights from the last run of ```model.py```. Here I made a new function ```predict_custom_image``` which contains all the instructions to predict any image that is uploaded from any directory (the ones I used for testing is available in ```Test``` folder. 
+`predict.py` script is the main script to be run since I've already uploaded the weights from the last run of `model.py`. Here I made a new function `predict_custom_image` which contains all the instructions to predict any image that is uploaded from any directory (the ones I used for testing is available in `Test` folder. 
 > Make sure you write the file paths properly while testing or else you'll get an error.
 
 ### STEP 4: TEST THE MODEL ON EVERY CASE
 I tried my level best to see where this model fails by testing it with nearly 30+ images of different parameters all based on my training data. This was genuinely the fun part because I wanted to prove my initial hypothesis right, but turns out the model was smarter than I accounted it for!
 
+
+## Metrics and Parameters
+* **Optimizer** : Adam
+* **Learning Rate** : 0.001
+* **Batch Size** : 32
+* **Regularization** : Dropout (p=0.5) enabled during training.
+* **Convolutional Layers** : 3
+* **Colour (RGB)** : Currently disabled
+* **Batch Shuffle** : True
+
+## Prerequisites
+This project was built with Python 3.
+
+Modules used in this project are:
+* `os`
+* `torch`
+* `seaborn` and `matplotlib` for graphs
+* `PIL` (for `Image`)
+
+> If you have Blender, you can run `shape_generator_1.py` and `gradient_shape_generator` **within Blender** NOT in PYTHON. The script will not run there. The script will generate beautiful 3D renders for you and save it to a folder.
 
 
