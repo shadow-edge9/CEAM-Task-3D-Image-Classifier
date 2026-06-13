@@ -2,7 +2,7 @@ import bpy
 import random
 import os
 
-#NOTE TO USERS: PASTE THIS SCRIPT IN BLENDER NOT IN PYTHON. IT WILL GET YOU NOWHERE.
+#NOTE TO USERS: PASTE THIS SCRIPT IN BLENDER, NOT IN PYTHON. RUN IT IN BLENDER.
 
 # This puts the images right on your computer's Desktop in a folder called 'Dataset'
 DESKTOP_PATH = os.path.join(os.path.expanduser("~"), "Desktop")
