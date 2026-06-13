@@ -61,6 +61,16 @@ Modules used in this project are:
 * `seaborn` and `matplotlib` for graphs
 * `PIL` (for `Image`)
 
-> If you have Blender, you can run `shape_generator_1.py` and `gradient_shape_generator` **within Blender** NOT in PYTHON. The script will not run there. The script will generate beautiful 3D renders for you and save it to a folder.
+## How to Run the Project
+1. You do NOT need to run `model.py`. The weights have been uploaded already. Do not attempt to delete the weights file or else you will not be able to run `predict.py`. (Training Dataset cannot be uploaded due to limitations)
+2. Run `predict.py` after typing in the image path. You have at your disposal a collection of test images I used myself in the `Test` directory.
 
+> If you have Blender, you can run `shape_generator_1.py` and `gradient_shape_generator` **within Blender** NOT in Python. The script will not run there. The script will generate beautiful 3D renders for you and save it to a folder.
 
+## Experimentation Phase
+## Observations and Conclusions
+This section is under construction...
+## Learnings and Challenge and Bug Fixes
+This section is under construction...
+## Next Step
+* I intend to run the model without the greyscale filter and see if it's accuracy improves or worsens
