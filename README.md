@@ -88,7 +88,7 @@ pip install torch seaborn matplotlib pillow
 
 2. Run `predict.py` after typing in the image path. You have at your disposal a collection of test images I used myself in the `Test` directory. If you wish, you may also test some from the `Dataset` folder
 
-> If you have Blender, you can run `shape_generator_1.py` and `gradient_shape_generator` **within Blender** NOT in Python. The script will not run there. The script will generate beautiful 3D renders for you and save it to a folder.
+> If you have Blender, you can run `shape_generator_1.py` and `gradient_shape_generator.py` **within Blender** NOT in Python. The script will not run there. The script will generate beautiful 3D renders for you and save it to a folder.
 
 To clone this repository:
 ```bash
