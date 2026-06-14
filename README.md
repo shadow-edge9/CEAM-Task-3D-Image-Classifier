@@ -76,11 +76,33 @@ Modules used in this project are:
 * `seaborn` and `matplotlib` (for graphs)
 * `PIL` (for `Image`)
 
+To install the modules required type this in your terminal (within PyCharm for .venv users)
+```bash
+pip install torch seaborn matplotlib pillow
+```
+> Mac Users, please replace pip with pip3.
+
 ## How to Run the Project
 1. You need not run `model.py` unless `ceam_shapenet_weights.pth` is not found. If that is the case, run `model.py` first to generate the weights. Along with it you'll generate and save two Analysis Graphs : Accuracy Analysis and Loss Analysis Graphs for both Training and Validation.
+> To run `model.py` you need to have downloaded the Dataset beforehand. It will not run otherwise.
+
 2. Run `predict.py` after typing in the image path. You have at your disposal a collection of test images I used myself in the `Test` directory. If you wish, you may also test some from the `Dataset` folder
 
 > If you have Blender, you can run `shape_generator_1.py` and `gradient_shape_generator` **within Blender** NOT in Python. The script will not run there. The script will generate beautiful 3D renders for you and save it to a folder.
+
+To clone this repository:
+```bash
+git clone https://github.com/shadow-edge9/CEAM-Task-3D-Image-Classifier
+cd CEAM-Task-3D-Image-Classifier
+```
+To run `model.py`:
+```bash
+python3 model.py
+```
+To run `predict.py`:
+```bash
+python3 model.py
+```
 
 ## Experimentation Phase
 Tested the model with the 30+ Images from `Test` folder and documented my observations in a presentation. Go to [**Project Assets**](#Project-Assets) 
