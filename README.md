@@ -52,6 +52,7 @@ This was genuinely the fun part because I wanted to prove my initial hypothesis 
 * **Convolutional Layers** : 3
 * **Colour (RGB)** : Currently disabled
 * **Batch Shuffle** : True
+* **Epochs** : 25
 
 **6th TRIAL Data**:
 #### (Epoch 25/25)
