@@ -61,6 +61,10 @@ This was genuinely the fun part because I wanted to prove my initial hypothesis 
 | **Loss** | $0.3312$ | $0.6325$ |
 | **Accuracy** | $88.6$% | $75.0$% |
 
+**Graphs:**
+<img width="1000" height="600" alt="loss_analysis_plot" src="https://github.com/user-attachments/assets/9015e307-fa4d-4c63-b238-cdd978a5e418" />
+
+<img width="1000" height="600" alt="accuracy_analysis_plot" src="https://github.com/user-attachments/assets/c718eb66-25d3-46ff-ae21-d7c175e4efc7" />
 
 ## Prerequisites
 This project was built with Python 3.
@@ -102,17 +106,33 @@ Initially I ran the model for 20 epochs both for **Trial 1** and **Trial 2** wit
 ### Trial 3
 In **Trial 3** I updated my Dataset to have 300+ images, hoping to get better results. Little did I know that the model was still going do worse. Its Training and Validation Accuracies were capped at a mere 58.3% each, meaning it was still guessing. The onlu good outcome from this was that it stopped yelling 100% CUBE for every shape and starting to have slight doubts at Sphere and Cone as well. I thought of increasing the number of epochs but as the graphs showed me, the model was learning well but doing worse in the exam. So I added a third Convolutional Layer and tested it out in the next Trial.
 
+<img width="1000" height="600" alt="accuracy_analysis_plot" src="https://github.com/user-attachments/assets/bfa0bc94-a026-480b-b364-614d1630a639" />
+
+<img width="1000" height="600" alt="loss_analysis_plot" src="https://github.com/user-attachments/assets/e3597f1e-07f8-42eb-8872-9e3e9c449d93" />
+
+
 ### Trial 4
 * Increased the number of out-channels to 128.
 * Clearly this one did much better in terms of accuracy from the previous three trials.
 * Training accuracy reached 77.1% and the validation accuracy reached 66.7%, which is actually a good improvement.
 * However the training loss and validation losses were still rather dismal.
 
+<img width="1000" height="600" alt="accuracy_analysis_plot" src="https://github.com/user-attachments/assets/dfb07ff1-1242-496c-ae39-10310a59a3b4" />
+
+<img width="1000" height="600" alt="loss_analysis_plot" src="https://github.com/user-attachments/assets/55159916-40f3-4cb0-a4d0-cd341b3871ea" />
+
+
 After running `predict.py` things got even worse, and amusing
 Somehow, the model figured everything had to be a cube.
 
 * When I actually gave it a cube, it said 59.6% cube and 37% cone and 3.5% probability for a sphere.
+  
+  <img width="657" height="349" alt="Screenshot 2026-06-12 at 5 26 38 PM" src="https://github.com/user-attachments/assets/e6db6301-07f8-4665-9404-8857a234821d" />
+
 * The moment I gave it a cone or a sphere, it would say 100% cube.
+
+  <img width="657" height="349" alt="Screenshot 2026-06-12 at 5 24 51 PM" src="https://github.com/user-attachments/assets/dd2dec0f-7ee3-437e-baf7-5e53c19578aa" />
+
 It's like when you confidently yell out the wrong answer in class. That's exactly what my model was doing.
 
 So I decided to either cut down the number of epochs or change the rendering because despite the large dataset and 3 Convolutional Layers, it was still failing to learn.
@@ -121,17 +141,27 @@ So I decided to either cut down the number of epochs or change the rendering bec
 * Ran it at 16 Epochs and finally the Validation Accuracy was better than Training Accuracy.
 * The first time the graphs did not plateau and both actually decreased together.
 * The first time Validation Losses dropped to a value below 1.0.
+
+  <img width="1000" height="600" alt="accuracy_analysis_plot" src="https://github.com/user-attachments/assets/e398ab4d-0d55-4750-8351-fe461405ef7a" />
+
+  <img width="1000" height="600" alt="loss_analysis_plot" src="https://github.com/user-attachments/assets/15b6d753-f2c8-421c-86c6-bd54d4211221" />
+
+
 But it STILL called my **sphere** a **CUBE**.
 
 
 And that's when I realised...
 
 I *never* *did* update my Dataset. 
-(insert image here)
+
+<img width="512" height="200" alt="Screenshot 2026-06-12 at 6 48 47 PM" src="https://github.com/user-attachments/assets/3f8d0531-c467-4aeb-a59c-08696b184b36" />
 
 I did, but I updated it on my Desktop and not in my Python .venv, and of course, it did not reflect the changes in PyCharm. This whole time I was running my tests with the old 60 Images and hoping for improvement. 
 > NOTE: If you're on a Python .venv, you might want to reupload any Desktop folders if you ever update it.
 Then I went ahead a reuploaded my 300+ Image Dataset.
+
+<img width="561" height="184" alt="fixed the dataset and loaded updated one" src="https://github.com/user-attachments/assets/4f9ab253-a482-4205-aa56-873a53d3c48e" />
+
 
 ### Trial 6
 The metrics of the **Trial 6** are documented in [Metrics and Parameters](#Metrics-and-Parameters)\
