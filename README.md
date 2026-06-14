@@ -6,6 +6,8 @@ The idea was to make a CNN that would differentiate between three easily recongn
 
 In my earlier project on Fashion MNIST Dataset, I used TensorFlow and the Keras Library to make the Fashion Classifier. However, this project involved 3D figures of various colours, shapes, orientations and lighting conditions, in comparision to the Fashion MNIST Dataset which contained only 2D Images and greyscale. Hence I upgraded to PyTorch.
 
+[Find Dataset Here](#Project-Assets)
+
  ### STEP 1: DATASET CREATION
 Generated solid colour 3D models renderings in Blender with a script generated using AI (I'm not familiar with Blender or the bpy module) and ran the script within Blender to produce 60 randomly generated 3D rendering of cones, cubes and spheres, all in various colours, sizes, orientations and lighting conditions. 
 
@@ -138,6 +140,10 @@ Trial 6 marked the end of my experimentation with the models parameters. All tha
 ## Next Steps
 * I intend to run the model without the greyscale filter and see if it's accuracy improves or worsens.
 
-##Assets
-Link to Dataset and Experiment Conclusion pdf is in this Google Drive Link:
+## Project Assets
+Link to Dataset and Experiment Conclusion pdf available here in this Google Drive Link:
+
+[View Assets](#https://drive.google.com/drive/folders/13R_NKuyk3o08ziRIDI4vTWoPr3WB0fc7?usp=sharing)
+
+> DISCLAIMER: I do not own the rights to any of these images in this dataset. Some of the images in this dataset were collected from Google. 
 
