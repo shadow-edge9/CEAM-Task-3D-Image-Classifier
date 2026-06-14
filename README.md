@@ -143,7 +143,7 @@ Trial 6 marked the end of my experimentation with the models parameters. All tha
 ## Project Assets
 Link to Dataset and Experiment Conclusion pdf available here in this Google Drive Link:
 
-[View Assets](#https://drive.google.com/drive/folders/13R_NKuyk3o08ziRIDI4vTWoPr3WB0fc7?usp=sharing)
+[View Assets](https://drive.google.com/drive/folders/13R_NKuyk3o08ziRIDI4vTWoPr3WB0fc7?usp=sharing)
 
 > DISCLAIMER: I do not own the rights to any of these images in this dataset. Some of the images in this dataset were collected from Google. 
 
