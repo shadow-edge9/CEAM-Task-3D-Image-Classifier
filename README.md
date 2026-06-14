@@ -67,10 +67,25 @@ Modules used in this project are:
 > If you have Blender, you can run `shape_generator_1.py` and `gradient_shape_generator` **within Blender** NOT in Python. The script will not run there. The script will generate beautiful 3D renders for you and save it to a folder.
 
 ## Experimentation Phase
-Tested the model with the 30+ Images from `Test` folder and documented my observations in a presentation. Check it out in the drive link above: 
+Tested the model with the 30+ Images from `Test` folder and documented my observations in a presentation. Go to [Assets](#Assets) 
 
 ## Observations and Conclusions
-This section is under construction...
+**6th TRIAL Data**:
+### (Epoch 25/25)
+
+| Metric | Training Phase | Validation Phase |
+| :--- | :---: | :---: |
+| **Loss** | $0.3312$ | $0.6325$ |
+| **Accuracy** | $88.6\%$ | $75.0\%$ |
+
+
+After Experimentation Phase, the following conclusions were drawn: 
+
+*The model struggles with backgrounds that have several elements (blurred or otherwise) or more than two colours.
+*The model might slightly struggle with gradients
+*The model seems to recognize cones well, even with a slightly messy background and gradients.
+*When the model encounters a shape unknown to it, it doesn’t give an equal probability; rather it forces the shape into the nearest identical category.
+
 ## Learnings and Challenge and Bug Fixes
 This section is under construction...
 ## Next Step
