@@ -22,14 +22,16 @@ Therefore, I updated my `Dataset` folder to include **300+ images (60 Validation
 > 2. gradient_shape_generator.py is the gradient colour script.
 
 ### STEP 2: BUILDING THE MODEL
-1. For all the modules used in the project, please refer to **Prerequisites**. First I started by creating a class called `CEAMShapeNet` that is basically a child class from the `nn.Module` class in `torchvision`. Initially it had on 2 `Conv2D` layers but I later updated it to have 3 Conv2D layers due to the lack of precision my model was showing (rather, the absence of precision. It was consistently yelling CUBE! at every shape I threw it) Then I set up the Dense Layers and defined the forward function.
-2. Activated Dropout during trainign to prevent the model from learning shortcuts.
-3. Set up transforms in `__main__` for both Training and Validation Datasets. To prevent my model from cheating and learning only based on colour I stripped it off its ability to see colour using `transforms.Grayscale`. Moreover I used `transforms.RandomHorizontalFLip` and `transforms.RandomRotation` to effectively increase the dataset images without physically doing any of these operations on my actual datatset.
-4. Used `os` module to map directories and load assets.
+For all the modules used in the project, please refer to [**Prerequisites**](#Prerequisites).
+
+1. First I started by creating a class called `CEAMShapeNet` that is basically a child class from the `nn.Module` class in `torchvision`. Initially it had on 2 `Conv2D` layers but I later updated it to have 3 Conv2D layers due to the lack of precision my model was showing (rather, the absence of precision. It was consistently yelling CUBE! at every shape I threw it) Then I set up the Dense Layers and defined the forward function.
+3. Activated Dropout during trainign to prevent the model from learning shortcuts.
+4. Set up transforms in `__main__` for both Training and Validation Datasets. To prevent my model from cheating and learning only based on colour I stripped it off its ability to see colour using `transforms.Grayscale`. Moreover I used `transforms.RandomHorizontalFLip` and `transforms.RandomRotation` to effectively increase the dataset images without physically doing any of these operations on my actual datatset.
+5. Used `os` module to map directories and load assets.
 7. The accuracies and losses of both Training and Validation was then collected and stored in a list defined at the beginning of the `__main__` to be able to produce line graphs of the same. The console also prints the raw data in real time as each Epoch completes.
 8. At last the weights would be saved in a .pth file for the `predict.py` script.
 
-It took me a total of 6 Trials to get to the near accurate version of this model.
+It took me 6 Trials to get to the near accurate version of this model.
 
 ### STEP 3: THE PREDICTOR - THE MAIN PROGRAM
 `predict.py` script is the main script to be run. It utilizes the weights from the latest run of `model.py`. Here I made a new function `predict_custom_image` which contains all the instructions to predict any image that is uploaded from any directory (the ones I used for testing is available in `Test` folder.)
@@ -59,12 +61,14 @@ Modules used in this project are:
 * `PIL` (for `Image`)
 
 ## How to Run the Project
-1. You need not run `model.py` unless `ceam_shapenet_weights.pth` is not found. If that i sthe case, run `model.py` first to generate the weights. Along with it you'll generate and save two Analysis Graphs : Accuracy Analysis and Loss Analysis Graphs for both Training and Validation.
+1. You need not run `model.py` unless `ceam_shapenet_weights.pth` is not found. If that is the case, run `model.py` first to generate the weights. Along with it you'll generate and save two Analysis Graphs : Accuracy Analysis and Loss Analysis Graphs for both Training and Validation.
 2. Run `predict.py` after typing in the image path. You have at your disposal a collection of test images I used myself in the `Test` directory. If you wish, you may also test some from the `Dataset` folder
 
 > If you have Blender, you can run `shape_generator_1.py` and `gradient_shape_generator` **within Blender** NOT in Python. The script will not run there. The script will generate beautiful 3D renders for you and save it to a folder.
 
 ## Experimentation Phase
+Tested the model with the 30+ Images from `Test` folder and documented my observations in a presentation. Check it out in the drive link above: 
+
 ## Observations and Conclusions
 This section is under construction...
 ## Learnings and Challenge and Bug Fixes
