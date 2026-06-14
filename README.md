@@ -99,13 +99,22 @@ After Experimentation Phase, the following conclusions were drawn:
 Initially I ran the model for 20 epochs both for **Trial 1** and **Trial 2** with the old 60 image dataset. It had only 2 Convolutional layers, and was doing terribly. It called every object a CUBE, and in Trial 2 it called everything a CUBE with 100% Confidence. Assuming it to be because of the colours I stripped off its ability to see colour with Grayscale. Clearly, it's doing so poorly in its Validation phase with 42% accuracy. Since I didn't plot the graphs back then, I only have the raw data for it. **Trial 2** ended with these metrics:
 
  #### Epoch (20/20)
-| Metric | Training Phase | Validation Phase |
+ | Metric | Training Phase | Validation Phase |
 | :--- | :---: | :---: |
 | **Loss** | $0.6876$ | $1.0582$ |
 | **Accuracy** | $64.6$% | $41.7$% |
 
+
 ### Trial 3
-In **Trial 3** I updated my Dataset to have 300+ images, hoping to get better results. Little did I know that the model was still going do worse. Its Training and Validation Accuracies were capped at a mere 58.3% each, meaning it was still guessing. The onlu good outcome from this was that it stopped yelling 100% CUBE for every shape and starting to have slight doubts at Sphere and Cone as well. I thought of increasing the number of epochs but as the graphs showed me, the model was learning well but doing worse in the exam. So I added a third Convolutional Layer and tested it out in the next Trial.
+In **Trial 3** I updated my Dataset to have 300+ images, hoping to get better results. Little did I know that the model was still going do worse. Its Training and Validation Accuracies were capped at a mere 58.3% each, meaning it was still guessing. 
+
+#### Epoch (25/25)
+| Metric | Training Phase | Validation Phase |
+| :--- | :---: | :---: |
+| **Loss** | $0.7218$ | $1.0857$ |
+| **Accuracy** | $58.3$% | $58.3$% |
+
+The only good outcome from this was that it stopped yelling 100% CUBE for every shape and starting to have slight doubts at Sphere and Cone as well. I thought of increasing the number of epochs but as the graphs showed me, the model was learning well but doing worse in the exam. So I added a third Convolutional Layer and tested it out in the next Trial.
 
 <img width="1000" height="600" alt="accuracy_analysis_plot" src="https://github.com/user-attachments/assets/bfa0bc94-a026-480b-b364-614d1630a639" />
 
@@ -117,6 +126,12 @@ In **Trial 3** I updated my Dataset to have 300+ images, hoping to get better re
 * Clearly this one did much better in terms of accuracy from the previous three trials.
 * Training accuracy reached 77.1% and the validation accuracy reached 66.7%, which is actually a good improvement.
 * However the training loss and validation losses were still rather dismal.
+
+#### 
+  | Metric | Training Phase | Validation Phase |
+| :--- | :---: | :---: |
+| **Loss** | $0.5632$ | $1.1658$ |
+| **Accuracy** | $77.1$% | $66.7$% |
 
 <img width="1000" height="600" alt="accuracy_analysis_plot" src="https://github.com/user-attachments/assets/dfb07ff1-1242-496c-ae39-10310a59a3b4" />
 
@@ -142,6 +157,12 @@ So I decided to either cut down the number of epochs or change the rendering bec
 * Ran it at 16 Epochs and finally the Validation Accuracy was better than Training Accuracy.
 * The first time the graphs did not plateau and both actually decreased together.
 * The first time Validation Losses dropped to a value below 1.0.
+
+#### Epoch(16/16)
+  | Metric | Training Phase | Validation Phase |
+| :--- | :---: | :---: |
+| **Loss** | $0.7117$ | $0.8270$ |
+| **Accuracy** | $64.6$% | $75.0$% |
 
   <img width="1000" height="600" alt="accuracy_analysis_plot" src="https://github.com/user-attachments/assets/e398ab4d-0d55-4750-8351-fe461405ef7a" />
 
