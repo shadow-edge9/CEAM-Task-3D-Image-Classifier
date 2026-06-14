@@ -101,7 +101,7 @@ python3 model.py
 ```
 To run `predict.py`:
 ```bash
-python3 model.py
+python3 predict.py
 ```
 
 ## Experimentation Phase
