@@ -84,10 +84,10 @@ Tested the model with the 30+ Images from `Test` folder and documented my observ
 
 After Experimentation Phase, the following conclusions were drawn: 
 
-*The model struggles with backgrounds that have several elements (blurred or otherwise) or more than two colours.
-*The model might slightly struggle with gradients
-*The model seems to recognize cones well, even with a slightly messy background and gradients.
-*When the model encounters a shape unknown to it, it doesn’t give an equal probability; rather it forces the shape into the nearest identical category.
+* The model struggles with backgrounds that have several elements (blurred or otherwise) or more than two colours.
+* The model might slightly struggle with gradients
+* The model seems to recognize cones well, even with a slightly messy background and gradients.
+* When the model encounters a shape unknown to it, it doesn’t give an equal probability; rather it forces the shape into the nearest identical category.
 
 ## Learnings, Challenges and Bug Fixes
 ### Trial 1 & 2
