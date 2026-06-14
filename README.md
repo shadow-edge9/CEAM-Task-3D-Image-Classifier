@@ -9,7 +9,7 @@ In my earlier project on Fashion MNIST Dataset, I used TensorFlow and the Keras 
  ### STEP 1: DATASET CREATION
 Generated solid colour 3D models renderings in Blender with a script generated using AI (I'm not familiar with Blender or the bpy module) and ran the script within Blender to produce 60 randomly generated 3D rendering of cones, cubes and spheres, all in various colours, sizes, orientations and lighting conditions. 
 
-My initial dataset consisted of 72 images (60 Training and 12 Validation). Later while running my model, it was still doing poorly even at the 3rd Trial, despite tweaking the epochs, adding an extra convolutional layer and even adding greyscale to prevent the model from cheating. 
+My initial dataset consisted of 60 images (48 Training, 12 Validation). Later while running my model, it was still doing poorly even at the 3rd Trial, despite tweaking the epochs, adding an extra convolutional layer and even adding greyscale to prevent the model from cheating. 
 
 Therefore, I updated my `Dataset` folder to include **300+ images (60 Validation Images)** which includes:
 * Solid Colour 3D Rendered Figures (different sizes, colours, orientations, lighting conditions)
@@ -51,6 +51,15 @@ This was genuinely the fun part because I wanted to prove my initial hypothesis 
 * **Colour (RGB)** : Currently disabled
 * **Batch Shuffle** : True
 
+**6th TRIAL Data**:
+#### (Epoch 25/25)
+
+| Metric | Training Phase | Validation Phase |
+| :--- | :---: | :---: |
+| **Loss** | $0.3312$ | $0.6325$ |
+| **Accuracy** | $88.6$% | $75.0$% |
+
+
 ## Prerequisites
 This project was built with Python 3.
 
@@ -70,14 +79,6 @@ Modules used in this project are:
 Tested the model with the 30+ Images from `Test` folder and documented my observations in a presentation. Go to [Assets](#Assets) 
 
 ## Observations and Conclusions
-**6th TRIAL Data**:
-### (Epoch 25/25)
-
-| Metric | Training Phase | Validation Phase |
-| :--- | :---: | :---: |
-| **Loss** | $0.3312$ | $0.6325$ |
-| **Accuracy** | $88.6\%$ | $75.0\%$ |
-
 
 After Experimentation Phase, the following conclusions were drawn: 
 
@@ -86,7 +87,57 @@ After Experimentation Phase, the following conclusions were drawn:
 *The model seems to recognize cones well, even with a slightly messy background and gradients.
 *When the model encounters a shape unknown to it, it doesn’t give an equal probability; rather it forces the shape into the nearest identical category.
 
-## Learnings and Challenge and Bug Fixes
-This section is under construction...
-## Next Step
-* I intend to run the model without the greyscale filter and see if it's accuracy improves or worsens
+## Learnings, Challenges and Bug Fixes
+### Trial 1 & 2
+Initially I ran the model for 20 epochs both for **Trial 1** and **Trial 2** with the old 60 image dataset. It had only 2 Convolutional layers, and was doing terribly. It called every object a CUBE, and in Trial 2 it called everything a CUBE with 100% Confidence. Assuming it to be because of the colours I stripped off its ability to see colour with Grayscale. Clearly, it's doing so poorly in its Validation phase with 42% accuracy. Since I didn't plot the graphs back then, I only have the raw data for it. **Trial 2** ended with these metrics:
+
+ #### Epoch (20/20)
+| Metric | Training Phase | Validation Phase |
+| :--- | :---: | :---: |
+| **Loss** | $0.6876$ | $1.0582$ |
+| **Accuracy** | $64.6$% | $41.7$% |
+
+### Trial 3
+In **Trial 3** I updated my Dataset to have 300+ images, hoping to get better results. Little did I know that the model was still going do worse. Its Training and Validation Accuracies were capped at a mere 58.3% each, meaning it was still guessing. The onlu good outcome from this was that it stopped yelling 100% CUBE for every shape and starting to have slight doubts at Sphere and Cone as well. I thought of increasing the number of epochs but as the graphs showed me, the model was learning well but doing worse in the exam. So I added a third Convolutional Layer and tested it out in the next Trial.
+
+### Trial 4
+* Increased the number of out-channels to 128.
+* Clearly this one did much better in terms of accuracy from the previous three trials.
+* Training accuracy reached 77.1% and the validation accuracy reached 66.7%, which is actually a good improvement.
+* However the training loss and validation losses were still rather dismal.
+
+After running `predict.py` things got even worse, and amusing
+Somehow, the model figured everything had to be a cube.
+
+* When I actually gave it a cube, it said 59.6% cube and 37% cone and 3.5% probability for a sphere.
+* The moment I gave it a cone or a sphere, it would say 100% cube.
+It's like when you confidently yell out the wrong answer in class. That's exactly what my model was doing.
+
+So I decided to either cut down the number of epochs or change the rendering because despite the large dataset and 3 Convolutional Layers, it was still failing to learn.
+
+### Trial 5
+* Ran it at 16 Epochs and finally the Validation Accuracy was better than Training Accuracy.
+* The first time the graphs did not plateau and both actually decreased together.
+* The first time Validation Losses dropped to a value below 1.0.
+But it STILL called my **sphere** a **CUBE**.
+
+
+And that's when I realised...
+
+I *never* *did* update my Dataset. 
+(insert image here)
+
+I did, but I updated it on my Desktop and not in my Python .venv, and of course, it did not reflect the changes in PyCharm. This whole time I was running my tests with the old 60 Images and hoping for improvement. 
+> NOTE: If you're on a Python .venv, you might want to reupload any Desktop folders if you ever update it.
+Then I went ahead a reuploaded my 300+ Image Dataset.
+
+### Trial 6
+The metrics of the **Trial 6** are documented in [Metrics and Parameters](#Metrics-and-Parameters)\
+Trial 6 marked the end of my experimentation with the models parameters. All that was left was to test different Images which I documented in [Experimentation Phase](#Experimentation-Phase).
+  
+## Next Steps
+* I intend to run the model without the greyscale filter and see if it's accuracy improves or worsens.
+
+##Assets
+Link to Dataset and Experiment Conclusion pdf is in this Google Drive Link:
+
