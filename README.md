@@ -78,7 +78,7 @@ Modules used in this project are:
 > If you have Blender, you can run `shape_generator_1.py` and `gradient_shape_generator` **within Blender** NOT in Python. The script will not run there. The script will generate beautiful 3D renders for you and save it to a folder.
 
 ## Experimentation Phase
-Tested the model with the 30+ Images from `Test` folder and documented my observations in a presentation. Go to [Assets](#Assets) 
+Tested the model with the 30+ Images from `Test` folder and documented my observations in a presentation. Go to [**Project Assets**](#Project-Assets) 
 
 ## Observations and Conclusions
 
